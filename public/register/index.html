@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+
+    <div class="container">
+            <div class="registrasion forms">
+                <header>Registrasi</header>
+                <form name="login" action="#">
+                    <label for="login">Username</label>
+                    <input name="username" type="text" placeholder="Masukkan Username">
+                    <label for="login">Password</label>
+                    <input name="password" type="password" placeholder="Masukkan Password">
+                    <input type="button" class="button" value="Daftar">
+                </form>
+            </div>
+    </div>
+
+    <script>
+        document.querySelector('.button').onclick = async (e) => {
+        e.preventDefault();
+        const username = document.login.username.value;
+        const password = document.login.password.value;
+        await fetch("/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+            body: JSON.stringify({
+            username,
+            password,
+            }),
+        });
+        alert("Akun Anda Sudah Terdaftar.");
+        location.href = "/login";
+        };
+    </script>
+    
+</body>
+</html>

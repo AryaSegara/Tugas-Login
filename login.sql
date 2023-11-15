@@ -1,0 +1,10 @@
+CREATE OR REPLACE DATABASE `loginn`;
+USE `loginn`;
+
+CREATE OR REPLACE TABLE `akun`(
+	`id` INT PRIMARY KEY AUTO_INCREMENT,
+	`username` VARCHAR(30),
+	`password` VARCHAR(30)
+);
+
+`
